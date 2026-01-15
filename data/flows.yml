@@ -1,0 +1,5 @@
+flows:
+  bank_address:
+    description: Provide the bank's address to users who ask for it.
+    steps:
+      - action: utter_bank_address
