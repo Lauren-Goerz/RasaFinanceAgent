@@ -1,0 +1,29 @@
+--- Python Virtual Environment ---
+.venv/
+venv/
+env/
+__pycache__/
+*.py[cod]
+*$py.class
+
+# --- Rasa 3.15+ Specific ---
+# Trained models are large binary files; don't track them
+models/
+
+# The .rasa folder stores the graph cache (Rasa 3.x architecture)
+.rasa/
+
+# Training and test results
+results/
+graph.html
+*.log
+rasa.log
+
+# --- Environment & Secret Variables ---
+.env
+
+# --- OS & IDE Specific ---
+.DS_Store
+Thumbs.db
+.vscode/
+.cursor/
