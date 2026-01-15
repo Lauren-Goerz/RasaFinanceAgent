@@ -1,6 +1,6 @@
-# Bank of Rasa - Banking Assistant
+# Bank of Rasa - Banking Agent
 
-A conversational AI assistant built with Rasa 3.x that helps customers with banking inquiries. The agent uses FlowPolicy to handle structured conversations and can provide information about the bank, answer questions, and assist with basic banking tasks.
+A conversational AI agent built with Rasa 3.x that helps customers with banking inquiries. The agent uses FlowPolicy to handle structured conversations and can provide information about the bank, answer questions, and assist with basic banking tasks.
 
 ## Project Structure
 
@@ -94,7 +94,7 @@ Verify that Rasa is installed correctly:
 rasa --version
 ```
 
-You should see the Rasa version number displayed.
+You should see the Rasa version number displayed. 3.15 is the latest.
 
 ### Step 7: Train the Model
 
@@ -106,9 +106,9 @@ rasa train
 
 This will process your flows, domain, and configuration files to create a trained model. The model will be saved in the `models/` directory.
 
-## Running the Assistant
+## Running the Agent
 
-The Rasa assistant requires two servers to run: the action server and the Rasa server.
+The Rasa agent requires two servers to run: the action server and the Rasa server.
 
 ### Start the Action Server (Terminal 1)
 
@@ -151,7 +151,7 @@ You should see output indicating the server is running on `http://localhost:5005
 
 1. Open your web browser
 2. Navigate to the URL shown in the terminal (typically `http://localhost:5005`)
-3. You'll see the Rasa Inspector interface where you can chat with your assistant
+3. You'll see the Rasa Inspector interface where you can chat with your agent
 
 ## Deactivating the Virtual Environment
 
