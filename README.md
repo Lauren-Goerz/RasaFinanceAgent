@@ -21,39 +21,147 @@ RasaFinanceAgent/
 
 ### Key Files Explained
 
-- **`config.yml`**: Defines the NLU pipeline and dialogue policies. Uses `FlowPolicy` for flow-based conversations.
+- **`config.yml`**: Defines the pipeline and dialogue policies. Uses `FlowPolicy` for flow-based conversations.
 - **`domain.yml`**: Contains all responses, actions, and slot definitions. This is where you define what the bot can say.
 - **`data/flows.yml`**: Defines user-facing conversation flows. Each flow represents a conversation path the bot can take.
 - **`data/patterns.yml`**: Defines system-level pattern flows (e.g., chitchat, clarification).
 - **`actions/actions.py`**: Custom Python actions that can perform logic, API calls, or complex operations.
 - **`endpoints.yml`**: Configuration for the action server and other external services.
 
-## Setup
+## Prerequisites
 
-1. **Install Dependencies**
-   ```bash
-   pip install rasa
-   ```
+- **Python 3.8, 3.9, 3.10, or 3.11** (Python 3.11 recommended)
+- **pip** (Python package installer)
+- **Virtual environment tool** (venv is included with Python 3.3+)
 
-2. **Train the Model**
-   ```bash
-   rasa train
-   ```
+## Installation
 
-3. **Start the Action Server** (Terminal 1)
-   ```bash
-   rasa run actions
-   ```
-   This starts the action server on port 5055.
+### Step 1: Clone or Navigate to the Project
 
-4. **Start the Rasa Server** (Terminal 2)
-   ```bash
-   rasa inspect
-   ```
-   This starts the Rasa server with the interactive inspector on port 5005.
+```bash
+cd /path/to/RasaFinanceAgent
+```
 
-5. **Access the Inspector**
-   Open your browser and navigate to the URL shown in the terminal (typically `http://localhost:5005`).
+### Step 2: Create a Virtual Environment
+
+Create a virtual environment to isolate project dependencies:
+
+**On macOS/Linux:**
+```bash
+python3 -m venv venv
+```
+
+**On Windows:**
+```bash
+python -m venv venv
+```
+
+### Step 3: Activate the Virtual Environment
+
+**On macOS/Linux:**
+```bash
+source venv/bin/activate
+```
+
+**On Windows:**
+```bash
+venv\Scripts\activate
+```
+
+You should see `(venv)` at the beginning of your terminal prompt, indicating the virtual environment is active.
+
+### Step 4: Upgrade pip (Recommended)
+
+```bash
+pip install --upgrade pip
+```
+
+### Step 5: Install Rasa
+
+Install Rasa and its dependencies:
+
+```bash
+pip install rasa
+```
+
+This will install Rasa along with all required dependencies. The installation may take a few minutes.
+
+### Step 6: Verify Installation
+
+Verify that Rasa is installed correctly:
+
+```bash
+rasa --version
+```
+
+You should see the Rasa version number displayed.
+
+### Step 7: Train the Model
+
+Train the Rasa model with your current configuration:
+
+```bash
+rasa train
+```
+
+This will process your flows, domain, and configuration files to create a trained model. The model will be saved in the `models/` directory.
+
+## Running the Assistant
+
+The Rasa assistant requires two servers to run: the action server and the Rasa server.
+
+### Start the Action Server (Terminal 1)
+
+The action server handles custom Python actions:
+
+```bash
+# Make sure your virtual environment is activated
+source venv/bin/activate  # On macOS/Linux
+# or
+venv\Scripts\activate     # On Windows
+
+# Start the action server
+rasa run actions
+```
+
+You should see output indicating the action server is running on `http://0.0.0.0:5055`.
+
+**Keep this terminal window open.**
+
+### Start the Rasa Server (Terminal 2)
+
+Open a new terminal window and start the Rasa server with the interactive inspector:
+
+```bash
+# Navigate to the project directory
+cd /path/to/RasaFinanceAgent
+
+# Activate the virtual environment
+source venv/bin/activate  # On macOS/Linux
+# or
+venv\Scripts\activate     # On Windows
+
+# Start the Rasa server
+rasa inspect
+```
+
+You should see output indicating the server is running on `http://localhost:5005`.
+
+### Access the Inspector
+
+1. Open your web browser
+2. Navigate to the URL shown in the terminal (typically `http://localhost:5005`)
+3. You'll see the Rasa Inspector interface where you can chat with your assistant
+
+## Deactivating the Virtual Environment
+
+When you're done working, you can deactivate the virtual environment:
+
+```bash
+deactivate
+```
+
+The `(venv)` prefix will disappear from your terminal prompt.
 
 ## Adding a New Flow with One Message Step
 
